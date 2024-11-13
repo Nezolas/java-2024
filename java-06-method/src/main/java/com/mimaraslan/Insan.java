@@ -19,7 +19,10 @@ public class Insan {
 
 
 
-         firstName = "Abdullah";
+       
+
+		/*
+		firstName = "Abdullah";
          lastName = "Gülbaz";
          age = 26;
          height = 1.70f;
@@ -31,7 +34,7 @@ public class Insan {
         infoPrint(firstName, lastName, age, height, salary, maritalStatus, gender, eyesColor);
 
 
-
+		*/
 
         firstName = "Celalettin";
         lastName = "Aksoy";
