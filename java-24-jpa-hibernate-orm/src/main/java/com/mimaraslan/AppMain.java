@@ -21,7 +21,7 @@ public class AppMain {
     //    System.out.println(customer2);
 
 
-   //     System.out.println(customer1.getId() +  " " + customer1.getFirstName() + " " + customer1.getLastName());
+      System.out.println(customer1.getId() +  " " + customer1.getFirstName() + " " + customer1.getLastName());
    //     System.out.println(customer2.getId() +  " " + customer2.getFirstName() + " " + customer2.getLastName());
 
         Session session = HibernateUtil.getSessionFactory().openSession();
