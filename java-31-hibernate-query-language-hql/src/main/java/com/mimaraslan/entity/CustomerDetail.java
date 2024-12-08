@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Setter
 @Getter
-@ToString
+//@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 
@@ -16,7 +16,8 @@ import java.util.Date;
 @Table(name = "CUSTOMER_DETAILS")
 public class CustomerDetail {
 
-    @OneToOne
+    // FIXME
+    @OneToOne (cascade = CascadeType.PERSIST,orphanRemoval = true)
     @JoinColumn
     Customer customer;
 
