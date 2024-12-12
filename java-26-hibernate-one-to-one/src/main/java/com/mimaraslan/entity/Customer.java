@@ -17,14 +17,14 @@ import lombok.*;
 public class Customer {
 
     @OneToOne (mappedBy = "customer",
-            fetch = FetchType.LAZY,
+            //fetch = FetchType.LAZY,  ---Specifying FetchType. LAZY for the non-owning side of the @OneToOne association will not affect the loading. The related entity will still be loaded as if the FetchType. EAGER is defined
             cascade = CascadeType.ALL)
     CustomerDetail customerDetail;
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CUSTOMER_ID")
+    @Column(name = "ID")
     private int customerId;
 
     @Column(name = "FIRST_NAME", length = 100, nullable = false)

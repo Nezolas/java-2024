@@ -1,6 +1,7 @@
 package com.mimaraslan.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -35,10 +36,11 @@ public class CustomerDetail {
     @Column(name = "ADDRESS", length = 1000)
     private String address;
 
-    @Column(name = "PHONE")
+    @Column(name = "PHONE", length = 10)
     private String phone;
 
     @Column(name = "EMAIL", length = 110)
+    @Email
     private String email;
 
     @Temporal(TemporalType.DATE)

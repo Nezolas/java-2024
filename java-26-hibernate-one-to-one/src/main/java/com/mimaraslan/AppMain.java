@@ -17,7 +17,7 @@ public class AppMain {
 
         CustomerDetail customerDetail1 = new CustomerDetail();
         customerDetail1.setAddress("Ankara");
-        customerDetail1.setPhone("111111111");
+        customerDetail1.setPhone("1111111111");
         customerDetail1.setEmail("aaaa@gmail.com");
         customerDetail1.setCreateDate(new Date());
 
@@ -34,7 +34,7 @@ public class AppMain {
 
         CustomerDetail customerDetail2 = new CustomerDetail();
         customerDetail2.setAddress("İstanbul");
-        customerDetail2.setPhone("222222222222");
+        customerDetail2.setPhone("2222222222");
         customerDetail2.setEmail("bbbbb@gmail.com");
         customerDetail2.setCreateDate(new Date());
 
@@ -54,6 +54,7 @@ public class AppMain {
             transaction = session.beginTransaction();
                 session.save(customer1);
                 session.save(customer2);
+                //session.remove(customer1);
             transaction.commit();
 
         } catch (HibernateError e) {
