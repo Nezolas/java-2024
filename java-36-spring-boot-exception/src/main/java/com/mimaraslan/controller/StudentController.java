@@ -1,5 +1,6 @@
 package com.mimaraslan.controller;
 
+import com.mimaraslan.exception.ResourceNotFoundException_404;
 import com.mimaraslan.model.Student;
 import com.mimaraslan.service.StudentService;
 import org.springframework.web.bind.annotation.*;
@@ -45,8 +46,9 @@ public class StudentController {
     //   JAVA - RESTful  - SQL
     //  READ  - GET  - SELECT     // Servise git.  git öğrencileri al gel.
 
+    // http://localhost:9090/api/v1/students
     // http://localhost:9090/api/v1/student/all
-    @GetMapping("/student/all")
+    @GetMapping( { "/students" ,  "/student/all"})
     public List<Student> getAllStudents() {
         return studentService.getAllStudents();
     }
@@ -57,7 +59,7 @@ public class StudentController {
 
     // http://localhost:9090/api/v1/student/1
     @GetMapping("/student/{id}")
-    public Student getStudent( @PathVariable (name = "id") Long id) {
+    public Student getStudent( @PathVariable (name = "id") Long id) throws ResourceNotFoundException_404 {
         return studentService.getStudent(id);
     }
 
@@ -78,7 +80,7 @@ public class StudentController {
 
     // http://localhost:9090/api/v1/student
     @PutMapping("/student")
-    public Optional<Student> updateStudent(@RequestBody Student student) {
+    public Optional<Student> updateStudent(@RequestBody Student student) throws ResourceNotFoundException_404{
         return studentService.updateStudent(student);
     }
 
@@ -86,7 +88,7 @@ public class StudentController {
     // http://localhost:9090/api/v1/student/1
     @PutMapping("/student/{id}")
     public Optional<Student> updateStudent(@PathVariable (name = "id") Long id,
-                                           @RequestBody Student student) {
+                                           @RequestBody Student student) throws ResourceNotFoundException_404{
         return studentService.updateStudent(id, student);
     }
 */
@@ -96,8 +98,7 @@ public class StudentController {
    //   DELETE - DELETE - DELETE       // Servise git. Gelen id veritabanında var mı yok mu?
     // http://localhost:9090/api/v1/student/1
     @DeleteMapping("/student/{id}")
-    public String deleteStudent( @PathVariable (name = "id")   Long id) {
-
+    public String deleteStudent( @PathVariable (name = "id")   Long id)  throws ResourceNotFoundException_404 {
         return studentService.deleteStudent(id);
     }
 

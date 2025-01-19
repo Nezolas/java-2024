@@ -2,15 +2,14 @@ package com.mimaraslan.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Data // ====> @Setter  +  @Getter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+
 
 @Entity
 @Table(name = "students")
@@ -20,15 +19,17 @@ public class Student {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
 
-   @Column(name = "firstname")
+   @Column(name = "FIRST_NAME",  length = 100, nullable = false)
    private String firstName;
 
-   // FIXME
+   @Column(name = "LAST_NAME",  length = 150)
    private String lastName;
 
    @Email
+   @Column (name = "EMAIL", unique = true)
    private String email;
 
+   @Column (name =  "PHONE" )
    private String phone;
 
 
